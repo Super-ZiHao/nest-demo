@@ -11,7 +11,6 @@ export class AppController {
 
   @Get()
   getHello(): string {
-    console.log(this.catsService.gets());
     return this.appService.getHello();
   }
 }
