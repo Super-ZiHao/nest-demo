@@ -16,6 +16,7 @@ export class CatsController {
       height: 34,
       background: '#cc9966',
     });
+
     res.type('image/svg+xml');
     res.send(captcha.data);
   }
