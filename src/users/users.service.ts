@@ -20,6 +20,11 @@ export class UsersService {
       username: 'maria',
       password: 'guess',
     },
+    {
+      userId: 4,
+      username: '1',
+      password: '2',
+    },
   ];
 
   // 因为这边一般是通过 数据库 搜索用户，所以是异步的
