@@ -22,7 +22,7 @@ export class UploadController {
   }
 
   @Get('stream')
-  async down(@res() res: Response) {
+  async down(@Res() res: Response) {
     const url = join(__dirname, '../images/1669638365685.png'); // 文件地址拼接
     const targetStreamZip = new zip.Stream();
     await targetStreamZip.addEntry(url);
