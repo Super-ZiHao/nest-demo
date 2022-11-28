@@ -2,6 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { join } from 'path';
+import { TransformInterceptor } from './common/response';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
@@ -9,6 +10,7 @@ async function bootstrap() {
   app.enableCors({
     credentials: true,
   }); // 开启 cors 策略
+  app.useGlobalInterceptors(new TransformInterceptor()); // 响应拦截
   await app.listen(3000);
 }
 bootstrap();
