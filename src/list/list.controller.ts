@@ -1,4 +1,13 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  Query,
+} from '@nestjs/common';
 import { ListService } from './list.service';
 import { CreateListDto } from './dto/create-list.dto';
 import { UpdateListDto } from './dto/update-list.dto';
@@ -13,13 +22,8 @@ export class ListController {
   }
 
   @Get()
-  findAll() {
-    return this.listService.findAll();
-  }
-
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.listService.findOne(+id);
+  findAll(@Query() query: { keyWord: string }) {
+    return this.listService.findAll(query);
   }
 
   @Patch(':id')
