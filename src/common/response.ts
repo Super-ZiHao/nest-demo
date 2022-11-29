@@ -11,6 +11,7 @@ export interface Data<T> {
   data: T;
 }
 
+// 响应拦截
 @Injectable()
 export class TransformInterceptor<T> implements NestInterceptor {
   intercept(context: ExecutionContext, next: CallHandler): Observable<Data<T>> {

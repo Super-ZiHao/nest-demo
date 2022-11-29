@@ -21,8 +21,9 @@ export class CatsController {
     res.send(captcha.data);
   }
 
-  @Post('create')
+  @Post('dto')
   createUser(@Body() body: CreateCatDto): any {
+    console.log(body);
     return [1, 2, 3, 4, 5];
   }
 }

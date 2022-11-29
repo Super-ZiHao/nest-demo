@@ -6,6 +6,7 @@ import {
 } from '@nestjs/common';
 import { Request, Response } from 'express';
 
+// 异常拦截
 @Catch()
 export class HttpFilter implements ExceptionFilter {
   catch(exception: HttpException, host: ArgumentsHost) {

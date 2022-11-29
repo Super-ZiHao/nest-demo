@@ -4,6 +4,7 @@ import { NestExpressApplication } from '@nestjs/platform-express';
 import { join } from 'path';
 import { TransformInterceptor } from './common/response';
 import { HttpFilter } from './common/filter';
+import { ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
@@ -11,8 +12,9 @@ async function bootstrap() {
   app.enableCors({
     credentials: true,
   }); // 开启 cors 策略
+  app.useGlobalPipes(new ValidationPipe()); // DTO验证
   app.useGlobalInterceptors(new TransformInterceptor()); // 响应拦截
-  app.useGlobalFilters(new HttpFilter()); // 异常拦截
+  // app.useGlobalFilters(new HttpFilter()); // 异常拦截
   await app.listen(3000);
 }
 bootstrap();
