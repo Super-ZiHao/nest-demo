@@ -11,6 +11,7 @@ import {
 import { ListService } from './list.service';
 import { CreateListDto } from './dto/create-list.dto';
 import { UpdateListDto } from './dto/update-list.dto';
+import { findAllQueryInterface } from './interfaces';
 
 @Controller('list')
 export class ListController {
@@ -22,7 +23,7 @@ export class ListController {
   }
 
   @Get()
-  findAll(@Query() query: { keyWord: string }) {
+  findAll(@Query() query: findAllQueryInterface) {
     return this.listService.findAll(query);
   }
 
