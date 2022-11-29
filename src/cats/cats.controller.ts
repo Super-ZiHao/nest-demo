@@ -2,8 +2,10 @@ import { Body, Controller, Get, Post, Req, Res } from '@nestjs/common';
 import { CatsService } from './cats.service';
 import { CreateCatDto } from './dto/create-cat.dto';
 import * as svgCaptcha from 'svg-captcha';
+import { ApiTags } from '@nestjs/swagger';
 
 @Controller('cats')
+@ApiTags('cats')
 export class CatsController {
   constructor(private readonly catsService: CatsService) {}
 
